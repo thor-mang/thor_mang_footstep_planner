@@ -13,7 +13,7 @@ else(CMAKE_SIZEOF_VOID_P EQUAL 8)
 endif(CMAKE_SIZEOF_VOID_P EQUAL 8)
 
 #set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+#set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 #set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS}")
 
@@ -128,16 +128,17 @@ set(SOURCES
 
 ## Declare a cpp library
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${boost_LIBRARIES})
+
+## Declare a cpp executable
+add_executable(thor_mang_footstep_planner_node src/thor_mang_footstep_planner_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
-## Declare a cpp executable
-add_executable(thor_mang_footstep_planner_node src/thor_mang_footstep_planner_node.cpp ${SOURCES} ${HEADERS})
-add_dependencies(thor_mang_footstep_planner_node ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(thor_mang_footstep_planner_node ${catkin_LIBRARIES} ${boost_LIBRARIES} thor)
+## Specify libraries to link a library or executable target against
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${boost_LIBRARIES} thor)
+target_link_libraries(thor_mang_footstep_planner_node ${PROJECT_NAME})
 
 #############
 ## Install ##
