@@ -1,17 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(thor_mang_footstep_planner)
 
-# detect architecture
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-  MESSAGE("64 bits compiler detected")
-  SET(EX_PLATFORM 64)
-  SET(EX_PLATFORM_NAME "x64")
-else(CMAKE_SIZEOF_VOID_P EQUAL 8)
-  MESSAGE("32 bits compiler detected")
-  SET(EX_PLATFORM 32 )
-  SET(EX_PLATFORM_NAME "x86")
-endif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-
 #set(CMAKE_BUILD_TYPE Debug)
 #set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
@@ -29,11 +18,7 @@ find_package(Boost REQUIRED COMPONENTS system)
 include_directories(../thor_mang_libs/include)
 include_directories(../thor_mang_libs/include/framework)
 include_directories(../thor_mang_libs/include/linux)
-IF(EX_PLATFORM EQUAL 64)
-link_directories(../thor_mang_libs/lib64)
-else(EX_PLATFORM EQUAL 64)
-link_directories(../thor_mang_libs/lib32)
-ENDIF(EX_PLATFORM EQUAL 64)
+link_directories(../thor_mang_libs/lib)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
