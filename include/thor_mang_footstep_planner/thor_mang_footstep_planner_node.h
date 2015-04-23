@@ -31,21 +31,21 @@
 
 #include <ros/ros.h>
 
-#include <thor_mang_footstep_planner/thor_mang_step_plan_msg_plugin.h>
 #include <vigir_global_footstep_planner/global_footstep_planner_node.h>
+#include <thor_mang_footstep_planning_msgs/thor_mang_step_plan_msg_plugin.h>
 
 
 
-namespace thor_mang_footstep_planner
+namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-class AtlasFootstepPlannerNode
+class ThorMangFootstepPlannerNode
   : public GlobalFootstepPlannerNode
 {
 public:
-  AtlasFootstepPlannerNode();
-  virtual ~AtlasFootstepPlannerNode();
+  ThorMangFootstepPlannerNode();
+  virtual ~ThorMangFootstepPlannerNode();
 
   void initPlugins(ros::NodeHandle& nh);
 };

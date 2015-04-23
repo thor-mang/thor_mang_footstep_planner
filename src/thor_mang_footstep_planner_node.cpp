@@ -1,19 +1,19 @@
 #include <thor_mang_footstep_planner/thor_mang_footstep_planner_node.h>
 
-namespace thor_mang_footstep_planner
+namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-AtlasFootstepPlannerNode::AtlasFootstepPlannerNode()
+ThorMangFootstepPlannerNode::ThorMangFootstepPlannerNode()
   : GlobalFootstepPlannerNode()
 {
 }
 
-AtlasFootstepPlannerNode::~AtlasFootstepPlannerNode()
+ThorMangFootstepPlannerNode::~ThorMangFootstepPlannerNode()
 {
 }
 
-void AtlasFootstepPlannerNode::initPlugins(ros::NodeHandle& nh)
+void ThorMangFootstepPlannerNode::initPlugins(ros::NodeHandle& nh)
 {
   GlobalFootstepPlannerNode::initPlugins(nh);
   PluginManager::addPlugin<ThorMangStepPlanMsgPlugin>();
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "thor_mang_footstep_planner");
 
   ros::NodeHandle nh;
-  thor_mang_footstep_planner::AtlasFootstepPlannerNode thorMangPlannerNode;
+  thor_mang_footstep_planning::ThorMangFootstepPlannerNode thorMangPlannerNode;
   thorMangPlannerNode.initPlugins(nh);
   thorMangPlannerNode.init(nh);
 
