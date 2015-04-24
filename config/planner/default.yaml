@@ -6,23 +6,6 @@ name: default
 # with 2^X (initially 2^16=65536)
 max_hash_size: 1048576
 
-# the step cost function that should be used to estimate the step costs of a step
-# possible choices:
-#  ConstStepCostEstimator: Each step has equal cost using primitives
-#  EuclideanStepCostEstimator: Euclidean distance as cost using primitives
-#  GprStepCostEstimator: Using learned GPR solution
-#  MapStepCostEstimator: Using lookup map
-#  BoundaryStepCostEstimator: Using boundary policy
-#  DynamicsStepCostEstimator: Using boundary policy and respects dynamic behavior of robot
-step_cost_estimator_type: BoundaryStepCostEstimator
-
-# the heuristic that should be used to estimate the remaining costs of a plan
-# possible choices:
-#  EuclideanHeuristic
-#  EuclStepCostHeuristic
-#  PathCostHeuristic
-heuristic_type: EuclStepCostHeuristic
-
 # default cost to perform one footstep (in addition to ALL other costs, corresponds to 'meters')
 const_step_cost_estimator:
   step_cost: 0.2
@@ -44,18 +27,6 @@ dynamic_step_cost_estimator:
   upper_step_limit: 0.25
   max_near_distance: 0.5
 
-# parameters for post processing step
-post_processing:
-  sway_duration_max_swing_dist: 0.5     # max swing distance (in direction the stand foot faces) before sway duration will be adjusted 
-  sway_duration_min_normal_z: 0.95      # min value in z axis of normal before sway duration will be adjusted
-  sway_duration_adjusted: 0.0           # adjusted sway duration
-  toe_off_max_turn_rate: 0.4            # max turn rate [rad] before TOE-OFF will be disabled
-  knee_nominal_max_step_down: 0.5       # max step down distance (positive) [m] before knee nominal will be adjusted
-  knee_nominal_adjusted: 0.0            # adjusted knee nominal 
-
-# the heuristic that should be used to estimate the step costs of a planning state
-# possible choices: EuclideanHeuristic, EuclStepCostHeuristic, PathCostHeuristic
-heuristic_type: EuclStepCostHeuristic
 heuristic_scale: 1.0
 
 # cost to estimate the difference between the current orientation and the goal
@@ -63,7 +34,7 @@ heuristic_scale: 1.0
 # cost since this cost is not incorporated in each step
 diff_angle_cost: 0.0
 
-
+max_risk: 1.0
 
 ### planner settings ###########################################################
 
