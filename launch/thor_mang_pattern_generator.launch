@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="namespace" default="/vigir/footstep_planning" />
+  <group ns="$(arg namespace)">
+    <!-- remapping -->
+    <remap from="/execute_step_plan" to="/thor_mang/footstep_preview_controller/execute_step_plan" />
+
+    <!-- start up pattern generator -->
+    <include file="$(find vigir_pattern_generator)/launch/pattern_generator.launch" />
+    <rosparam file="$(find thor_mang_footstep_planner)/config/pattern_generator_config.yaml" command="load" />
+
+    <!-- start the pattern generator rqt gui interface-->
+    <node name="pattern_generator_rqt_widget" pkg="vigir_footstep_planning_widgets" type="pattern_generator_rqt" respawn="true"/>
+
+    <!-- specify where to load robot specific parameters -->
+    <rosparam file="$(find thor_mang_footstep_planner)/config/robot_params.yaml" command="load" />
+    <param name="planner_configs_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
+  </group>
+</launch>
