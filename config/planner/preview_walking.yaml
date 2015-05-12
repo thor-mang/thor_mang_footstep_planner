@@ -12,7 +12,7 @@ const_step_cost_estimator:
 
 # parameters for BoundaryStepCostEstimator (multipliers)
 boundary_step_cost_estimator:
-  max_diff_z: 0.40                      # [m]
+  max_diff_z: 0.20                      # [m]
   long_step_dist: 0.30                  # [m]
   min_yaw_seperation_enlargement: 0.2   # [rad]
   yaw_enlarged_min_seperation: 0.23     # [m]
@@ -65,8 +65,8 @@ foot_contact_support:
   min_sampling_steps_y: 4
   max_sampling_steps_x: 32
   max_sampling_steps_y: 24
-  max_intrusion_z: 0.0075
-  max_ground_clearance: 0.01
+  max_intrusion_z: 0.01
+  max_ground_clearance: 0.02
   minimal_support: 0.85
 
 collision_check:
