@@ -1,11 +1,11 @@
-robot_name: THOR_MANG
+robot_name: THOR_MANG_V1
 
 world_frame_id: /world
 
 ### upper body settings ########################################################
 upper_body:
-  size: {x: 0.7, y: 1.1} # [m]
-  origin_shift: {x: -0.1, y: 0.00} # [m], transformation from center to shifted frame
+  size: {x: 0.7, y: 1.1, z: 1.5} # [m]
+  origin_shift: {x: -0.1, y: 0.00, z: 0.00} # [m], transformation from center to shifted frame
 
 ### foot settings ##############################################################
 foot:
