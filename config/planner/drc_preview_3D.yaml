@@ -8,7 +8,7 @@ max_hash_size: 1048576
 
 # default cost to perform one footstep (in addition to ALL other costs, corresponds to 'meters')
 const_step_cost_estimator:
-  step_cost: 0.05
+  step_cost: 0.01
 
 # parameters for BoundaryStepCostEstimator (multipliers)
 boundary_step_cost_estimator:
