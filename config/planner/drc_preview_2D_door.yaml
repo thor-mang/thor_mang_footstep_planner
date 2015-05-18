@@ -8,12 +8,12 @@ max_hash_size: 1048576
 
 # default cost to perform one footstep (in addition to ALL other costs, corresponds to 'meters')
 const_step_cost_estimator:
-  step_cost: 0.2
+  step_cost: 0.005
 
 # parameters for BoundaryStepCostEstimator (multipliers)
 boundary_step_cost_estimator:
-  max_diff_z: 0.20                      # [m]
-  long_step_dist: 0.30                  # [m]
+  max_diff_z: 0.25                      # [m]
+  long_step_dist: 0.21                  # [m]
   min_yaw_seperation_enlargement: 0.2   # [rad]
   yaw_enlarged_min_seperation: 0.23     # [m]
   cost_roll_abs: 0.5                    # [1/rad]
@@ -27,6 +27,8 @@ dynamic_step_cost_estimator:
   upper_step_limit: 0.25
   max_near_distance: 0.5
 
+# parameters for heuristics
+max_heuristic_value: 1000.0
 heuristic_scale: 1.0
 
 # cost to estimate the difference between the current orientation and the goal
@@ -83,7 +85,7 @@ collision_check:
   collision_check_accuracy: 2
 
   # discretization of continuous space (cell size in meters)
-  cell_size: 0.025
+  cell_size: 0.02
 
   num_angle_bins: 32
 
@@ -99,12 +101,12 @@ step_range:
   x: [ 0.00, -0.08, -0.05, -0.02,  0.05,  0.10,  0.15]
   y: [ 0.23,  0.24,  0.25,  0.30,  0.30,  0.25,  0.23]
 
+sway_duration: 0.0
 step_duration: 0.65
 swing_height:  0.1      # Ignored if it is less than 0.1
 step_mode:     1        # 0 -> WALK / 1 -> STEP
 
 ### misc ###################################################################
 feedback_rate: 10.0 # [Hz]
-threads: 2
-jobs_per_thread: 50
-
+threads: 4
+jobs_per_thread: 100
