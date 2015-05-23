@@ -4,7 +4,7 @@
   <arg name="namespace" default="/vigir/footstep_planning" />
   <group ns="$(arg namespace)">
     <!-- remapping -->
-    <remap from="/execute_step_plan" to="/thor_mang/footstep_preview_controller/execute_step_plan" />
+    <remap from="/execute_step_plan" to="/thor_mang/step_controller/execute_step_plan" />
 
     <!-- start up pattern generator -->
     <include file="$(find vigir_pattern_generator)/launch/pattern_generator.launch" />
