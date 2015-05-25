@@ -106,6 +106,11 @@ step_duration: 0.7
 swing_height:  0.1      # Ignored if it is less than 0.1
 step_mode:     1        # 0 -> WALK / 1 -> STEP
 
+dynamics:
+  body: # zero values will disable dynamic constraints
+    max_vel: 0.0
+    max_acc: 0.0
+
 ### misc ###################################################################
 feedback_rate: 10.0 # [Hz]
 threads: 4
