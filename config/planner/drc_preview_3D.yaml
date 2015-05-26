@@ -92,9 +92,9 @@ collision_check:
 ### step set params ########################################################
 foot:
   max:
-    step: {theta: 0.25}
+    step: {theta: 0.2}
     inverse:
-      step: {theta: -0.10}
+      step: {theta: -0.05}
 
 # define polygon for valid step position in view of supporting (=standing) foot
 step_range:
