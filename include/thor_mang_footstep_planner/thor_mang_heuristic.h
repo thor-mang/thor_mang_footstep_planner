@@ -26,12 +26,12 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //=================================================================================================
 
-#ifndef THOR_MANG_FOOTSTEP_PLANNER_NODE_H__
-#define THOR_MANG_FOOTSTEP_PLANNER_NODE_H__
+#ifndef THOR_MANG_HEURISTIC_H__
+#define THOR_MANG_HEURISTIC_H__
 
-#include <ros/ros.h>
+#include <vigir_footstep_planning_lib/math.h>
 
-#include <vigir_global_footstep_planner/global_footstep_planner_node.h>
+#include <vigir_footstep_planning_lib/plugins/heuristic_plugin.h>
 
 
 
@@ -39,14 +39,24 @@ namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-class ThorMangFootstepPlannerNode
-  : public GlobalFootstepPlannerNode
+class ThorMangHeuristic
+  : public HeuristicPlugin
 {
 public:
-  ThorMangFootstepPlannerNode();
-  virtual ~ThorMangFootstepPlannerNode();
+  ThorMangHeuristic(const ParameterSet& params);
+  ThorMangHeuristic();
 
-  void initPlugins(ros::NodeHandle& nh);
+  void loadParams(const ParameterSet& params) override;
+
+  double getHeuristicValue(const State& from, const State& to, const State& start, const State& goal) const override;
+
+protected:
+  double step_cost;
+  double diff_angle_cost;
+
+  /// longest step width
+  double max_step_dist_x_inv;
+  double max_step_dist_y_inv;
 };
 }
 

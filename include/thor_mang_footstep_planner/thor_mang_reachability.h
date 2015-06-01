@@ -26,12 +26,16 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //=================================================================================================
 
-#ifndef THOR_MANG_FOOTSTEP_PLANNER_NODE_H__
-#define THOR_MANG_FOOTSTEP_PLANNER_NODE_H__
+#ifndef THOR_MANG_REACHABILITY_H__
+#define THOR_MANG_REACHABILITY_H__
 
 #include <ros/ros.h>
 
-#include <vigir_global_footstep_planner/global_footstep_planner_node.h>
+#include <vigir_footstep_planning_lib/plugins/reachability_plugin.h>
+
+#include <vigir_footstep_planning_lib/math.h>
+
+#include <vigir_footstep_planning_msgs/footstep_planning_msgs.h>
 
 
 
@@ -39,14 +43,24 @@ namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-class ThorMangFootstepPlannerNode
-  : public GlobalFootstepPlannerNode
+class ThorMangReachability
+  : public ReachabilityPlugin
 {
 public:
-  ThorMangFootstepPlannerNode();
-  virtual ~ThorMangFootstepPlannerNode();
+  ThorMangReachability(const ParameterSet& params);
+  ThorMangReachability();
 
-  void initPlugins(ros::NodeHandle& nh);
+  void loadParams(const ParameterSet& params) override;
+
+  bool isReachable(const State& current, const State& next) const override;
+  bool isReachable(const State& left_foot, const State& right_foot, const State& swing_foot) const override;
+
+  // typedefs
+  typedef boost::shared_ptr<ThorMangReachability> Ptr;
+  typedef boost::shared_ptr<const ThorMangReachability> ConstPtr;
+
+protected:
+  double foot_seperation;
 };
 }
 

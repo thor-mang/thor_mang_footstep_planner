@@ -103,10 +103,14 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${boost_INCLUDE_DIRS})
 ## Specify additional locations of header files
 set(HEADERS
   include/${PROJECT_NAME}/thor_mang_footstep_planner_node.h
+  include/${PROJECT_NAME}/thor_mang_heuristic.h
+  include/${PROJECT_NAME}/thor_mang_reachability.h
 )
 
 set(SOURCES
   src/thor_mang_footstep_planner_node.cpp
+  src/thor_mang_heuristic.cpp
+  src/thor_mang_reachability.cpp
 )
 
 ## Declare a cpp library

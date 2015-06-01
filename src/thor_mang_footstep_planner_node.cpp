@@ -1,5 +1,9 @@
 #include <thor_mang_footstep_planner/thor_mang_footstep_planner_node.h>
 
+#include <thor_mang_footstep_planning_msgs/thor_mang_step_plan_msg_plugin.h>
+#include <thor_mang_footstep_planner/thor_mang_reachability.h>
+#include <thor_mang_footstep_planner/thor_mang_heuristic.h>
+
 namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
@@ -16,7 +20,12 @@ ThorMangFootstepPlannerNode::~ThorMangFootstepPlannerNode()
 void ThorMangFootstepPlannerNode::initPlugins(ros::NodeHandle& nh)
 {
   GlobalFootstepPlannerNode::initPlugins(nh);
+
+  PluginManager::removePluginsByType<StepCostHeuristic>();
+
   PluginManager::addPlugin<ThorMangStepPlanMsgPlugin>();
+  PluginManager::addPlugin<ThorMangReachability>();
+  PluginManager::addPlugin<ThorMangHeuristic>();
 }
 }
 

@@ -1,10 +1,61 @@
 name: drc_step_no_collision
 
-### planner environment settings ###############################################
+### planner settings ###########################################################
 
 # the size of the used hash map (the bigger the better); should be something
 # with 2^X (initially 2^16=65536)
 max_hash_size: 1048576
+
+# define the planner of choice provided by the SBPL package
+# - ARAPlanner
+# - ADPlanner
+# - RSTARPlanner
+planner_type: ARAPlanner
+
+# search until a specific time limit is reached or first solution is found
+search_until_first_solution: False
+
+max_planning_time: 10.0 # default max planning time if not given by request
+initial_epsilon: 8.0
+decrease_epsilon: 0.2
+
+forward_search: True
+
+# the limit of changed states that decides whether to replan or to start a hole
+# new planning task
+changed_cells_limit: 20000
+
+### Planning parameterization for a large humanoid, similar to ASIMO or HRP-2 ##
+
+# used for foot contact support collision check
+foot_contact_support:
+  min_sampling_steps_x: 6
+  min_sampling_steps_y: 4
+  max_sampling_steps_x: 32
+  max_sampling_steps_y: 24
+  max_intrusion_z: 0.01
+  max_ground_clearance: 0.02
+  minimal_support: 0.85
+
+collision_check:
+  # collision check flag (binary decoded)
+  # - 1 feet
+  # - 2 upper body
+  # - 4 foot contact support
+  collision_check_flag: 0
+
+  # footstep collision check accuracy
+  # - 0 (just the circumcircle of the foot)
+  # - 1 (just the incircle of the foot)
+  # - 2 (circumcircle and incircle recursivly checked for the whole foot)
+  collision_check_accuracy: 2
+
+  # discretization of continuous space (cell size in meters)
+  cell_size: 0.01
+
+  num_angle_bins: 180
+
+### planner environment settings ###############################################
 
 # default cost to perform one footstep (in addition to ALL other costs, corresponds to 'meters')
 const_step_cost_estimator:
@@ -39,55 +90,9 @@ diff_angle_cost: 0.0
 # maximum risk before state will be discarded
 max_risk: 1.0
 
-### planner settings ###########################################################
-
-# define the planner of choice provided by the SBPL package
-# - ARAPlanner
-# - ADPlanner
-# - RSTARPlanner
-planner_type: ARAPlanner
-
-# search until a specific time limit is reached or first solution is found
-search_until_first_solution: False
-
-max_planning_time: 10.0 # default max planning time if not given by request
-initial_epsilon: 8.0
-decrease_epsilon: 0.2
-
-forward_search: True
-
-# the limit of changed states that decides whether to replan or to start a hole
-# new planning task
-changed_cells_limit: 20000
-
-### Planning parameterization for a large humanoid, similar to ASIMO or HRP-2 ##
-# used for foot contact support collision check
-foot_contact_support:
-  min_sampling_steps_x: 6
-  min_sampling_steps_y: 4
-  max_sampling_steps_x: 32
-  max_sampling_steps_y: 24
-  max_intrusion_z: 0.01
-  max_ground_clearance: 0.02
-  minimal_support: 0.85
-
-collision_check:
-  # collision check flag (binary decoded)
-  # - 1 feet
-  # - 2 upper body
-  # - 4 foot contact support
-  collision_check_flag: 0
-
-  # footstep collision check accuracy
-  # - 0 (just the circumcircle of the foot)
-  # - 1 (just the incircle of the foot)
-  # - 2 (circumcircle and incircle recursivly checked for the whole foot)
-  collision_check_accuracy: 2
-
-  # discretization of continuous space (cell size in meters)
-  cell_size: 0.01
-
-  num_angle_bins: 32
+thor_mang_heuristic:
+  step_cost: 0.3
+  diff_angle_cost: 0.1
 
 ### step set params ########################################################
 foot:
@@ -108,8 +113,8 @@ step_mode:     1        # 0 -> WALK / 1 -> STEP
 
 dynamics:
   body: # zero values will disable dynamic constraints
-    max_vel: 0.1
-    max_acc: 0.025
+    max_vel: 0.0
+    max_acc: 0.05
 
 ### misc ###################################################################
 feedback_rate: 10.0 # [Hz]
