@@ -4,7 +4,7 @@ namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-ThorMangReachability::ThorMangReachability(const ParameterSet& params)
+ThorMangReachability::ThorMangReachability(const vigir_generic_params::ParameterSet& params)
   : ReachabilityPlugin("thor_mang_reachability", params)
 {
 }
@@ -14,7 +14,7 @@ ThorMangReachability::ThorMangReachability()
 {
 }
 
-void ThorMangReachability::loadParams(const ParameterSet& /*params*/)
+void ThorMangReachability::loadParams(const vigir_generic_params::ParameterSet& /*params*/)
 {
   ros::NodeHandle nh;
   nh.getParam("foot/separation", foot_seperation);

@@ -4,7 +4,7 @@ namespace thor_mang_footstep_planning
 {
 using namespace vigir_footstep_planning;
 
-ThorMangHeuristic::ThorMangHeuristic(const ParameterSet& params)
+ThorMangHeuristic::ThorMangHeuristic(const vigir_generic_params::ParameterSet& params)
 : HeuristicPlugin("thor_mang_heuristic", params)
 {}
 
@@ -12,7 +12,7 @@ ThorMangHeuristic::ThorMangHeuristic()
 : HeuristicPlugin("thor_mang_heuristic")
 {}
 
-void ThorMangHeuristic::loadParams(const ParameterSet& params)
+void ThorMangHeuristic::loadParams(const vigir_generic_params::ParameterSet& params)
 {
   HeuristicPlugin::loadParams(params);
 

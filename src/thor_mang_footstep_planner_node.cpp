@@ -21,11 +21,11 @@ void ThorMangFootstepPlannerNode::initPlugins(ros::NodeHandle& nh)
 {
   GlobalFootstepPlannerNode::initPlugins(nh);
 
-  PluginManager::removePluginsByType<StepCostHeuristic>();
+  vigir_pluginlib::PluginManager::removePluginsByType<StepCostHeuristic>();
 
-  PluginManager::addPlugin<ThorMangStepPlanMsgPlugin>();
-  PluginManager::addPlugin<ThorMangReachability>();
-  PluginManager::addPlugin<ThorMangHeuristic>();
+  vigir_pluginlib::PluginManager::addPlugin<ThorMangStepPlanMsgPlugin>();
+  vigir_pluginlib::PluginManager::addPlugin<ThorMangReachability>();
+  vigir_pluginlib::PluginManager::addPlugin<ThorMangHeuristic>();
 }
 }
 

@@ -47,10 +47,10 @@ class ThorMangReachability
   : public ReachabilityPlugin
 {
 public:
-  ThorMangReachability(const ParameterSet& params);
+  ThorMangReachability(const vigir_generic_params::ParameterSet& params);
   ThorMangReachability();
 
-  void loadParams(const ParameterSet& params) override;
+  void loadParams(const vigir_generic_params::ParameterSet& params) override;
 
   bool isReachable(const State& current, const State& next) const override;
   bool isReachable(const State& left_foot, const State& right_foot, const State& swing_foot) const override;

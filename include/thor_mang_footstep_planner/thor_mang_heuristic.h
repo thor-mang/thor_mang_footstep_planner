@@ -43,10 +43,10 @@ class ThorMangHeuristic
   : public HeuristicPlugin
 {
 public:
-  ThorMangHeuristic(const ParameterSet& params);
+  ThorMangHeuristic(const vigir_generic_params::ParameterSet& params);
   ThorMangHeuristic();
 
-  void loadParams(const ParameterSet& params) override;
+  void loadParams(const vigir_generic_params::ParameterSet& params) override;
 
   double getHeuristicValue(const State& from, const State& to, const State& start, const State& goal) const override;
 
