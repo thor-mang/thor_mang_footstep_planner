@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs thor_mang_footstep_planning_msgs vigir_footstep_planning)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs vigir_footstep_planning)
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
@@ -88,7 +88,7 @@ link_directories(../../thor_mang_libs/lib)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES thor_mang_footstep_planner
-  CATKIN_DEPENDS roscpp rospy std_msgs thor_mang_footstep_planning_msgs vigir_footstep_planning
+  CATKIN_DEPENDS roscpp rospy std_msgs vigir_footstep_planning
 #  DEPENDS system_lib
 )
 
@@ -103,14 +103,10 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${boost_INCLUDE_DIRS})
 ## Specify additional locations of header files
 set(HEADERS
   include/${PROJECT_NAME}/thor_mang_footstep_planner_node.h
-  include/${PROJECT_NAME}/thor_mang_heuristic.h
-  include/${PROJECT_NAME}/thor_mang_reachability.h
 )
 
 set(SOURCES
   src/thor_mang_footstep_planner_node.cpp
-  src/thor_mang_heuristic.cpp
-  src/thor_mang_reachability.cpp
 )
 
 ## Declare a cpp library

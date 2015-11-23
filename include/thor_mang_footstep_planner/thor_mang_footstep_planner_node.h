@@ -43,7 +43,7 @@ class ThorMangFootstepPlannerNode
   : public GlobalFootstepPlannerNode
 {
 public:
-  ThorMangFootstepPlannerNode();
+  ThorMangFootstepPlannerNode(ros::NodeHandle& nh);
   virtual ~ThorMangFootstepPlannerNode();
 
   void initPlugins(ros::NodeHandle& nh);

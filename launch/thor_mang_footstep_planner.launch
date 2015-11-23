@@ -11,10 +11,14 @@
       <arg name="namespace" value="$(arg namespace)" />
     </include>
 
-    <!-- run atlas specific footstep planner -->
-    <node name="thor_mang_footstep_planner" pkg="thor_mang_footstep_planner" type="thor_mang_footstep_planner_node" respawn="true" output="screen" />    
+    <!-- start footstep planner -->
+    <node name="global_footstep_planner" pkg="vigir_footstep_planner" type="footstep_planner_node" respawn="true" output="screen" />
 
-    <!-- specify where to load robot specific parameters -->
+    <!-- load plugin configurations from YAML file to parameter server -->
+    <rosparam file="$(find thor_mang_footstep_planning_plugins)/config/thor_mang_plugins.yaml" command="load" />
+    <rosparam file="$(find thor_mang_footstep_planner)/config/thor_mang_plugin_sets.yaml" command="load" />
+    
+    <!-- specify where to load robot specific parameters and plugins -->
     <rosparam file="$(find thor_mang_footstep_planner)/config/robot_params.yaml" command="load" />
     <param name="planner_configs_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
   </group>

@@ -2,6 +2,8 @@ name: drc_step_2D
 
 ### planner settings ###########################################################
 
+plugin_set: default
+
 # the size of the used hash map (the bigger the better); should be something
 # with 2^X (initially 2^16=65536)
 max_hash_size: 1048576
@@ -38,11 +40,11 @@ foot_contact_support:
   minimal_support: 0.85
 
 collision_check:
-  # collision check flag (binary decoded)
+  # collision check mask (binary decoded)
   # - 1 feet
   # - 2 upper body
   # - 4 foot contact support
-  collision_check_flag: 3
+  collision_check_mask: 3
 
   # footstep collision check accuracy
   # - 0 (just the circumcircle of the foot)
