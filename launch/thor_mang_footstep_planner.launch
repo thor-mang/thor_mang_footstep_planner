@@ -12,7 +12,7 @@
     </include>
 
     <!-- start footstep planner -->
-    <node name="global_footstep_planner" pkg="vigir_footstep_planner" type="footstep_planner_node" respawn="true" output="screen" />
+    <node name="thor_mang_footstep_planner" pkg="vigir_global_footstep_planner" type="global_footstep_planner_node" respawn="true" output="screen" />
 
     <!-- load plugin configurations from YAML file to parameter server -->
     <rosparam file="$(find thor_mang_footstep_planning_plugins)/config/thor_mang_plugins.yaml" command="load" />
