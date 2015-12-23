@@ -41,7 +41,7 @@ max_risk: 1.0
 
 ### planner settings ###########################################################
 
-plugin_set: default
+plugin_set: thor_mang_default
 
 # define the planner of choice provided by the SBPL package
 # - ARAPlanner

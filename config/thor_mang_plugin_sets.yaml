@@ -1,5 +1,5 @@
 plugin_sets:
-  default:
+  thor_mang_default:
     # StepPlanMsgPlugin
     thor_mang_step_plan_msg_plugin: none
 

@@ -2,7 +2,7 @@ name: drc_step_2D
 
 ### planner settings ###########################################################
 
-plugin_set: default
+plugin_set: thor_mang_default
 
 # the size of the used hash map (the bigger the better); should be something
 # with 2^X (initially 2^16=65536)
