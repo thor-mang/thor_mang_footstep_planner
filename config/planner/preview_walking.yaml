@@ -100,11 +100,11 @@ foot:
 
 # define polygon for valid step position in view of supporting (=standing) foot
 step_range:
-  x: [ 0.00, -0.08, -0.05, -0.02,  0.05,  0.10,  0.10]
-  y: [ 0.25,  0.25,  0.30,  0.35,  0.35,  0.30,  0.25]
+  x: [ 0.00, -0.12, -0.10, -0.05,  0.05,  0.15,  0.20]
+  y: [ 0.15,  0.15,  0.20,  0.25,  0.25,  0.20,  0.15]
 
 sway_duration: 0.0
-step_duration: 0.65
+step_duration: 1.0
 swing_height:  0.1      # Ignored if it is less than 0.1
 step_mode:     1        # 0 -> WALK / 1 -> STEP
 
