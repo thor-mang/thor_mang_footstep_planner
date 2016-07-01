@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="namespace" default="/vigir/footstep_planning" />
+  <arg name="namespace" default="johnny5/footstep_planning" />
   <group ns="$(arg namespace)">
     <!-- remapping -->
-    <remap from="/robot_pose" to="/flor/state/pelvis_pose_world" />
+    <remap from="robot_pose" to="/flor/state/pelvis_pose_world" />
 
     <!-- start up footstep planning system -->
-    <include file="$(find vigir_footstep_planning)/launch/footstep_planning_basics.launch">
-      <arg name="namespace" value="$(arg namespace)" />
-    </include>
+    <include file="$(find vigir_footstep_planning)/launch/footstep_planning_basics.launch" />
 
     <!-- start footstep planner -->
     <node name="thor_mang_footstep_planner" pkg="vigir_global_footstep_planner" type="global_footstep_planner_node" respawn="true" output="screen" />
