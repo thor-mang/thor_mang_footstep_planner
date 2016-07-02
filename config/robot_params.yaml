@@ -1,4 +1,4 @@
-robot_name: THOR_MANG_V1
+robot_name: THOR_MANG_V3
 
 world_frame_id: /world
 
@@ -9,16 +9,16 @@ upper_body:
 
 ### foot settings ##############################################################
 foot:
-  size: {x: 0.24, y: 0.145, z: 0.015} # [m]
-  separation: 0.186 # [m]
+  size: {x: 0.22, y: 0.15, z: 0.015} # [m]
+  separation: 0.22 # [m]
   left: # position of planner foot frame (center of sole) given in robot's "foot" tf frame
-    frame_id: /l_foot
+    frame_id: /l_leg_foot_link
     foot_frame:
-      {x:  0.009, y:  0.00, z: -0.118, roll:  0.00, pitch:  0.00, yaw:  0.00}  # 3x[m] 3x[rad]
+      {x:  0.00, y:  0.0155, z:  0.00, roll:  0.00, pitch:  0.00, yaw:  0.00}  # 3x[m] 3x[rad]
   right: # position of planner foot frame (center of sole) given in robot's "foot" tf frame
-    frame_id: /r_foot
+    frame_id: /r_leg_foot_link
     foot_frame:
-      {x:  0.009, y:  0.00, z: -0.118, roll:  0.00, pitch:  0.00, yaw:  0.00}  # 3x[m] 3x[rad]
+      {x:  0.00, y: -0.0155, z:  0.00, roll:  0.00, pitch:  0.00, yaw:  0.00}  # 3x[m] 3x[rad]
 
 ### pelvis pose to feet center (on ground) transform ###########################
 pelvis_to_feet_center: {x: 0.0, y: 0.0, z: -0.912} # [m]
