@@ -9,10 +9,10 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs vigir_footstep_planning)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs vigir_footstep_planning thor_mang_footstep_planning_plugins)
 
 ## System dependencies are found with CMake's conventions
-find_package(Boost REQUIRED COMPONENTS system)
+#find_package(Boost REQUIRED COMPONENTS system)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -82,7 +82,7 @@ find_package(Boost REQUIRED COMPONENTS system)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES thor_mang_footstep_planner
-  CATKIN_DEPENDS roscpp rospy std_msgs vigir_footstep_planning
+  CATKIN_DEPENDS roscpp rospy std_msgs vigir_footstep_planning thor_mang_footstep_planning_plugins
 #  DEPENDS system_lib
 )
 
@@ -133,9 +133,9 @@ target_link_libraries(thor_mang_footstep_planner_node ${PROJECT_NAME})
 
 ## Mark executables and/or libraries for installation
 install(TARGETS ${PROJECT_NAME} thor_mang_footstep_planner_node
-   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## install the launch files
@@ -151,20 +151,6 @@ install(DIRECTORY config
   FILES_MATCHING PATTERN "*"
   PATTERN "*~" EXCLUDE
 )
-
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
 
 #############
 ## Testing ##
