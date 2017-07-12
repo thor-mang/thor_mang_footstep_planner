@@ -4,11 +4,14 @@
   <arg name="namespace" default="johnny5/footstep_planning" />
   <group ns="$(arg namespace)">
     <!-- remapping -->
-    <remap from="execute_step_plan" to="step_controller/execute_step_plan" />
+    <remap from="execute_step_plan" to="/johnny5/step_control_module/execute_step_plan" />
 
     <!-- start up pattern generator -->
     <include file="$(find vigir_pattern_generator)/launch/pattern_generator.launch" />
     <rosparam file="$(find thor_mang_footstep_planner)/config/pattern_generator_config.yaml" command="load" />
+
+    <!-- start up joystick node -->
+    <include file="$(find vigir_pattern_generator)/launch/joystick.launch" />
 
     <!-- start the pattern generator rqt gui interface-->
     <node name="pattern_generator_rqt_widget" pkg="vigir_footstep_planning_widgets" type="pattern_generator_rqt" respawn="true"/>
