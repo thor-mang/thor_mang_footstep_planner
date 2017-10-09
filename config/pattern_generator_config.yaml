@@ -1,24 +1,15 @@
 pattern_generator:
     update_rate: 10 # [Hz]
-    number_of_steps_needed: 6
+    number_of_steps: 4
     republish_complete_step_plan: False
 
+    limits:
+      x:    { min: -0.1, max: 0.2 }
+      y:    0.1
+      yaw:  0.1
+
 joystick:
-    thresh_x:       0.40
-    thresh_y:       0.40
-    thresh_yaw:     0.20
-    sensivity_x:    1.00
-    sensivity_y:    1.00
-    sensivity_yaw:  1.00
-    min_vel_x:     -0.05 # [m/step] min delta x per step
-    max_vel_x:      0.10 # [m/step] max delta x per step
-    min_vel_y:     -0.07 # [m/step] min delta y per step
-    max_vel_y:      0.07 # [m/step] max delta y per step
-    min_vel_yaw:   -3.00 # [deg/step] min delta yaw per step
-    max_vel_yaw:    3.00 # [deg/step] max delta yaw per step
-    min_acc_x:     -0.01 # [m/step^2] min acceleration in x per step
-    max_acc_x:      0.02 # [m/step^2] max acceleration in x per step
-    min_acc_y:     -0.02 # [m/step^2] min acceleration in y per step
-    max_acc_y:      0.02 # [m/step^2] max acceleration in y per step
-    min_acc_yaw:   -0.50 # [deg/step^2] min acceleration in yaw per step
-    max_acc_yaw:    0.50 # [deg/step^2] max acceleration in yaw per step
+    x:      { axis: 1, thresh: 0.2, min: -1.0, max: 1.0, zero: 0.0, calib: 0.0, invert: False }
+    y:      { axis: 0, thresh: 0.2, min: -1.0, max: 1.0, zero: 0.0, calib: 0.0, invert: False }
+    yaw:    { axis: 3, thresh: 0.2, min: -1.0, max: 1.0, zero: 0.0, calib: 0.0, invert: False }
+    enable: { axis: 2, thresh: 1.0, min: -1.0, max: 1.0, zero: 1.0, calib: 0.0, invert: False }
