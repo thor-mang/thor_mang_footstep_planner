@@ -1,12 +1,12 @@
 pattern_generator:
-    update_rate: 2 # [Hz]
+    update_rate: 10 # [Hz]
     number_of_steps: 3
     republish_complete_step_plan: False
 
     limits:
       x:    { min: -0.07, max: 0.14 }
       y:    0.07
-      yaw:  0.05
+      yaw:  0.2
 
 joystick:
     x:      { axis: 1, thresh: 0.2, min: -1.0, max: 1.0, zero: 0.0, calib: 0.0, invert: False }
