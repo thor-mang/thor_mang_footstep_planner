@@ -10,7 +10,6 @@
     <node name="thor_mang_footstep_planner" pkg="vigir_global_footstep_planner" type="global_footstep_planner_node" respawn="true" output="screen" />
 
     <!-- load plugin descriptions and sets from YAML file to parameter server -->
-    <rosparam file="$(find thor_mang_footstep_planning_plugins)/config/plugin_descriptions.yaml" command="load" />
     <rosparam file="$(find thor_mang_footstep_planner)/config/thor_mang_plugin_sets.yaml" command="load" />
     
     <!-- specify where to load robot specific parameters -->
