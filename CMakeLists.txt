@@ -4,12 +4,10 @@ project(thor_mang_footstep_planner)
 #set(CMAKE_BUILD_TYPE Debug)
 #set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
-
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs vigir_footstep_planning thor_mang_footstep_planning_plugins)
+find_package(catkin REQUIRED COMPONENTS vigir_footstep_planning thor_mang_footstep_planning_plugins)
 
 ## System dependencies are found with CMake's conventions
 #find_package(Boost REQUIRED COMPONENTS system)
@@ -80,9 +78,9 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs vigir_footstep_pla
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES thor_mang_footstep_planner
-  CATKIN_DEPENDS roscpp rospy std_msgs vigir_footstep_planning thor_mang_footstep_planning_plugins
+#  INCLUDE_DIRS include
+#  LIBRARIES thor_mang_footstep_planner
+  CATKIN_DEPENDS vigir_footstep_planning thor_mang_footstep_planning_plugins
 #  DEPENDS system_lib
 )
 
@@ -92,30 +90,22 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include ${catkin_INCLUDE_DIRS} ${boost_INCLUDE_DIRS})
-
-## Specify additional locations of header files
-set(HEADERS
-  include/${PROJECT_NAME}/thor_mang_footstep_planner_node.h
-)
-
-set(SOURCES
-  src/thor_mang_footstep_planner_node.cpp
-)
+# include_directories(include ${catkin_INCLUDE_DIRS})
 
 ## Declare a cpp library
-add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+# add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+# target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${boost_LIBRARIES})
+# add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a cpp executable
-add_executable(thor_mang_footstep_planner_node src/thor_mang_footstep_planner_node.cpp)
+# add_executable(footstep_planning_node src/footstep_planning_node.cpp ${SOURCES} ${HEADERS})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(footstep_planning_node ${PROJECT_NAME}_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${boost_LIBRARIES})
-target_link_libraries(thor_mang_footstep_planner_node ${PROJECT_NAME})
+# target_link_libraries(footstep_planning_node ${catkin_LIBRARIES} ${boost_LIBRARIES})
 
 #############
 ## Install ##
@@ -126,26 +116,28 @@ target_link_libraries(thor_mang_footstep_planner_node ${PROJECT_NAME})
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS ${PROJECT_NAME} thor_mang_footstep_planner_node
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+# install(TARGETS l3_footstep_planner_plugin l3_footstep_planning_plugin_node
+#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
 
-## install the launch files
+## Mark cpp header files for installation
+# install(DIRECTORY include/${PROJECT_NAME}/
+#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+#   FILES_MATCHING PATTERN "*.h"
+#   PATTERN ".svn" EXCLUDE
+# )
+
+## Mark other files for installation (e.g. launch and bag files, etc.)
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   FILES_MATCHING PATTERN "*.launch"
   PATTERN "*~" EXCLUDE
 )
 
-## install the config files
 install(DIRECTORY config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   FILES_MATCHING PATTERN "*"
