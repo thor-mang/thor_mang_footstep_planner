@@ -1,10 +1,14 @@
 plugin_sets:
   thor_mang_default:
+    # GaitGeneratorPlugin
+    bipedal_gait_generator: none
+
     # StateGeneratorPlugin
     reachability_state_generator: none
 
     # StepPlanMsgPlugin
-    thor_mang_step_plan_msg_plugin: none
+    step_plan_msg_plugin: none
+    #thor_mang_step_plan_msg_plugin: none
 
     # ReachabilityPlugins
     reachability_polygon: none
