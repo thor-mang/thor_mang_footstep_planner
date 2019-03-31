@@ -4,9 +4,7 @@
   <arg name="ns" default="johnny5/footstep_planning" />
   <group ns="$(arg ns)">
     <!-- start robot description server -->
-    <node name="robot_description_server" pkg="l3_libs" type="robot_description_server" respawn="true" output="screen">
-      <param name="robot_model_path" value="robot_model" />
-    </node>
+    <node name="robot_description_server" pkg="l3_libs" type="robot_description_server" respawn="true" output="screen" />
 
     <!-- start up footstep planning system -->
     <include file="$(find l3_footstep_planning)/launch/footstep_planning_basics.launch" />
