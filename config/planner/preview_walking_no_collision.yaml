@@ -2,24 +2,19 @@ name: preview_walking_no_collision
 
 ### planner environment settings ###############################################
 
-resolution:
-  x: 0.02
-  y: 0.02
-  z: 0.02
-  yaw: 0.02
+# discretization of continuous space
+cell_size: &cell_size 0.01 # cell size in meters
+num_angle_bins: 64         # bins per full turn (0-360°)
 
-# default cost to perform one footstep (in addition to ALL other costs, corresponds to 'meters')
-const_step_cost_estimator:
-  step_cost: 0.1
+resolution:
+  x: *cell_size
+  y: *cell_size
+  z: *cell_size
+  yaw: 0.02
 
 # parameters for heuristics
 max_heuristic_value: 1000.0
 heuristic_scale: 1.0
-
-# cost to estimate the difference between the current orientation and the goal
-# orientation; used in the heuristic it can easily overestimate the true path
-# cost since this cost is not incorporated in each step
-diff_angle_cost: 0.0
 
 # maximum risk before state will be discarded
 max_risk: 1.0
@@ -67,32 +62,9 @@ collision_check:
   # - 2 (circumcircle and incircle recursivly checked for the whole foot)
   collision_check_accuracy: 2
 
-  # discretization of continuous space (cell size in meters)
-  cell_size: 0.01
-
-  num_angle_bins: 64
-
-### step set params ########################################################
-foot:
-  max:
-    step: {theta: 0.3}
-    inverse:
-      step: {theta: -0.05}
-
-# define polygon for valid step position in view of supporting (=standing) foot
-step_range:
-  x: [ 0.00, -0.10, -0.08, -0.05,  0.05,  0.10,  0.13]
-  y: [ 0.20,  0.20,  0.25,  0.30,  0.30,  0.25,  0.20]
-
 sway_duration: 0.0
 step_duration: 1.0
 swing_height:  0.1
-step_mode:     1        # 0 -> WALK / 1 -> STEP
-
-dynamics:
-  body: # zero values will disable dynamic constraints
-    max_vel: 0.0 #0.1
-    max_acc: 0.0 #0.025
 
 ### misc ###################################################################
 feedback_rate: 10.0 # [Hz]

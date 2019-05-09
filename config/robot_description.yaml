@@ -8,7 +8,7 @@ robot_model:
     
     ### foot settings ##############################################################
     base_foot: &base_foot
-      - shape: "CUBOID" # CUBOID, SPHERE
+      - shape: "CUBOID" # CUBOID, SPHERICAL
         size: {x: 0.22, y: 0.15, z: 0.015} # [m]
 
     feet:
