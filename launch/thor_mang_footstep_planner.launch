@@ -3,8 +3,8 @@
 <launch>
   <arg name="ns" default="johnny5/footstep_planning" />
   <group ns="$(arg ns)">
-    <!-- start robot description server -->
-    <node name="robot_description_server" pkg="l3_libs" type="robot_description_server" respawn="true" output="screen" />
+    <!-- start robot model server -->
+    <include file="$(find thor_mang_l3_config)/launch/robot_model_server.launch" />
 
     <!-- start up footstep planning system -->
     <include file="$(find l3_footstep_planning)/launch/footstep_planning_basics.launch" />
@@ -16,7 +16,6 @@
     <rosparam file="$(find thor_mang_footstep_planner)/config/thor_mang_plugin_sets.yaml" command="load" />
     
     <!-- specify where to load robot specific parameters -->
-    <rosparam file="$(find thor_mang_l3)/config/robot_description.yaml" command="load" />
     <param name="params_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
     <param name="default_params" value="preview_walking" />
   </group>
