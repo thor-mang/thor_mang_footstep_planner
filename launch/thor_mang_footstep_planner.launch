@@ -16,7 +16,7 @@
     <rosparam file="$(find thor_mang_footstep_planner)/config/thor_mang_plugin_sets.yaml" command="load" />
     
     <!-- specify where to load robot specific parameters -->
-    <rosparam file="$(find thor_mang_footstep_planner)/config/robot_description.yaml" command="load" />
+    <rosparam file="$(find thor_mang_l3)/config/robot_description.yaml" command="load" />
     <param name="params_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
     <param name="default_params" value="preview_walking" />
   </group>
