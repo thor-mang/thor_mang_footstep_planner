@@ -33,7 +33,7 @@
   <!-- Dependencies can be catkin packages or system dependencies -->
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>vigir_footstep_planning</depend>
+  <depend>l3_footstep_planning</depend>
   <depend>thor_mang_footstep_planning_plugins</depend>
 
 
