@@ -2,6 +2,8 @@
 
 <launch>
   <arg name="ns" default="johnny5/footstep_planning" />
+  <arg name="gui" default="False" />
+
   <group ns="$(arg ns)">
     <!-- start robot model server -->
     <include file="$(find thor_mang_l3_config)/launch/robot_model_server.launch" />
@@ -19,4 +21,9 @@
     <param name="params_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
     <param name="default_params" value="preview_walking" />
   </group>
+
+  <!-- start step widget -->
+  <include file="$(find l3_footstep_planning_widgets)/launch/step_interface_rqt.launch" if="$(arg gui)">
+    <arg name="ns" value="$(arg ns)" />
+  </include>
 </launch>
