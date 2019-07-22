@@ -4,13 +4,12 @@ name: preview_walking
 
 # discretization of continuous space
 cell_size: &cell_size 0.01 # cell size in meters
-num_angle_bins: 64         # bins per full turn (0-360°)
 
 resolution:
   x: *cell_size
   y: *cell_size
   z: *cell_size
-  yaw: 0.02
+  num_angle_bins: 72 # bins per full turn (0-360°)
 
 # parameters for heuristics
 max_heuristic_value: 1000.0
