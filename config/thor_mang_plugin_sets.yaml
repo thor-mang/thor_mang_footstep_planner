@@ -4,7 +4,7 @@ plugin_sets:
     bipedal_gait_generator: none
 
     # StateGeneratorPlugin
-    reachability_state_generator:
+    polygonal_state_generator:
       params:
         reachability_polygons: &reachability_polygons
           base_polygon: &base_polygon
@@ -26,7 +26,7 @@ plugin_sets:
     #thor_mang_step_plan_msg_plugin: none
 
     # ReachabilityPlugins
-    reachability_polygon:
+    polygonal_reachability:
       params:
         reachability_polygons: *reachability_polygons
 
