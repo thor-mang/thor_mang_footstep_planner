@@ -53,7 +53,7 @@ plugin_sets:
     # PostProcessPlugins
     step_dynamics_post_process: none
 
-    # CollisionCheckPlugins
+    # WorldModelPlugins
     2_upper_body_grid_map_model:
       import: upper_body_grid_map_model
       params:
@@ -67,7 +67,7 @@ plugin_sets:
 
     # TerrainModelPlugins
     1_terrain_model:
-      import: terrain_model
+      import: basic_terrain_model
       params:
         collision_check_flag: 4 # Foot Contact Support
         terrain_model_topic: /terrain_model
