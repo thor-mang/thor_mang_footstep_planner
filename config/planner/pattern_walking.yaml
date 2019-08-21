@@ -39,17 +39,6 @@ decrease_epsilon: 0.2
 
 forward_search: True
 
-### Planning parameterization for a large humanoid, similar to ASIMO or HRP-2 ##
-# used for foot contact support collision check
-foot_contact_support:
-  min_sampling_steps_x: 6
-  min_sampling_steps_y: 4
-  max_sampling_steps_x: 32
-  max_sampling_steps_y: 24
-  max_intrusion_z: 0.01
-  max_ground_clearance: 0.02
-  minimal_support: 0.85
-
 collision_check:
   # collision check mask (binary encoded)
   # - 1 feet
