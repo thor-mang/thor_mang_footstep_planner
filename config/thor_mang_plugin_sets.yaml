@@ -70,3 +70,10 @@ plugin_sets:
       params:
         collision_check_flag: 4 # Foot Contact Support
         terrain_model_topic: /terrain_model
+
+  vis:
+    step_plan_request_vis: none
+    step_plan_vis: none
+    step_plan_path_vis: none
+    upper_body_vis: none
+    planning_feedback_vis: none
