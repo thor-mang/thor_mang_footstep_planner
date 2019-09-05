@@ -1,8 +1,5 @@
 plugin_sets:
   thor_mang_default:
-    # GaitGeneratorPlugin
-    bipedal_gait_generator: none
-
     # StateGeneratorPlugin
     polygonal_state_generator:
       params:
@@ -77,3 +74,7 @@ plugin_sets:
     step_plan_path_vis: none
     upper_body_vis: none
     planning_feedback_vis: none
+    inverse_kinematics_vis:
+      params:
+        robot_description: "johnny5/robot_description"
+        center_to_root: { x: -0.03, y: 0.0, z: 0.722, roll: 0.0, pitch: 0.0, yaw: 0.0}

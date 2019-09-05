@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="ns" default="johnny5/footstep_planning" />
+  <arg name="gui" default="False" />
+
+  <!-- load robot model -->
+  <group ns="johnny5">
+    <include file="$(find thormang3_description)/launch/load_robot_description.launch">
+      <arg name="robot_name" value="johnny5" />
+    </include>
+  </group>
+
+  <include file="$(find thor_mang_footstep_planner)/launch/thor_mang_footstep_planner.launch" pass_all_args="true" />
+</launch>
