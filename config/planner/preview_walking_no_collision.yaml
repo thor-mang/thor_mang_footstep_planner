@@ -43,7 +43,6 @@ collision_check:
   # collision check mask (binary encoded)
   # - 1 feet
   # - 2 upper body
-  # - 4 foot contact support
   collision_check_mask: 0
 
   # footstep collision check accuracy
