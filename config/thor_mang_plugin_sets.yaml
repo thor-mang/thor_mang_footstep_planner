@@ -54,18 +54,18 @@ plugin_sets:
       import: upper_body_grid_map_model
       params:
         collision_check_flag: 2 # Upper Body
-        grid_map_topic: /body_level_grid_map
+        topic: /body_level_grid_map
     2_foot_grid_map_model:
       import: foot_grid_map_model
       params:
         collision_check_flag: 1 # Foot
-        grid_map_topic: /ground_level_grid_map
+        topic: /ground_level_grid_map
 
     # TerrainModelPlugins
     terrain_model:
       import: basic_terrain_model
       params:
-        terrain_model_topic: /terrain_model
+        topic: /terrain_model
 
   vis:
     step_plan_request_vis: none
