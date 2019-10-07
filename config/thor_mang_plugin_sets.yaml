@@ -1,6 +1,7 @@
 plugin_sets:
   thor_mang_default:
     # StateGeneratorPlugin
+    direct_goal_state_generator: none
     polygonal_state_generator:
       params:
         reachability_polygons: &reachability_polygons
