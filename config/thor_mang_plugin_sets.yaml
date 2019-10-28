@@ -61,14 +61,10 @@ plugin_sets:
 
     # HeuristicPlugins
     euclidean_heuristic: none
-    dynamics_heuristic:
-      params:
-        max_body_vel: 0.0
-        max_body_acc: 0.0
     step_cost_heuristic:
       params:
         step_cost: *step_cost
-        diff_angle_cost: 0.05
+        diff_angle_cost: 0.0
         max_step_dist_x: 0.13
         max_step_dist_y: 0.08
 
