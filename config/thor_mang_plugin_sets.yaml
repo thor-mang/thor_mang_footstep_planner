@@ -102,6 +102,5 @@ plugin_sets:
     inverse_kinematics_vis:
       params:
         robot_description: "johnny5/robot_description"
-        center_to_root: {x: -0.03, y: 0.0, z: 0.722, roll: 0.0, pitch: 0.0, yaw: 0.0}
         joint_names: ["l_arm_sh_p1", "l_arm_sh_r", "l_arm_sh_p2", "l_arm_el_y", "r_arm_sh_p1", "r_arm_sh_r", "r_arm_sh_p2", "r_arm_el_y", "head_p"]
         joint_values: [0.44, 1.31, 0.09, -0.52, -0.44, -1.31, -0.09, 0.52, 0.4]
