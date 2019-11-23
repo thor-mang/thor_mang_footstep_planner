@@ -6,43 +6,19 @@ plugin_sets:
       params:
         use_mask: 1
         reachability_polygons: &reachability_polygons
-          base_polygon: &base_polygon
-            - x: [ 0.00, -0.10, -0.08, -0.05,  0.05,  0.10,  0.15]
-              y: [-0.04, -0.00,  0.03,  0.08,  0.08,  0.03,  0.00]
-              yaw: [-0.05, 0.30]
+          base_polygon: &base_reachability_polygon
+            - x: [ 0.00, -0.07, -0.06, -0.05,  0.05,  0.07,  0.10]
+              y: [-0.04,  0.00,  0.03,  0.05,  0.05,  0.03,  0.00]
+              yaw: [-0.05, 0.20]
 
           feet:
-            - <<: *base_polygon
+            - <<: *base_reachability_polygon
               idx: 0 # left
 
-            - <<: *base_polygon
+            - <<: *base_reachability_polygon
               idx: 1 # right
               mirror_y: True
               mirror_yaw: True
-
-    #ik_polygonal_state_generator:
-    #  params:
-    #    use_mask: 1
-    #    center_to_root: {x: -0.03, y: 0.0, z: 0.722, roll: 0.0, pitch: 0.0, yaw: 0.0}
-    #    resolution:
-    #      x: 0.02
-    #      y: 0.02
-    #      z: 0.02
-    #      num_angle_bins: 72 # bins per full turn (0-360°)
-    #    reachability_polygons: &ik_reachability_polygons
-    #      base_polygon: &ik_base_polygon
-    #        - x: [ 0.30, -0.30, -0.30,  0.30]
-    #          y: [ 0.30,  0.30, -0.10, -0.10]
-    #          yaw: [-0.05, 0.30]
-    #
-    #      feet:
-    #        - <<: *ik_base_polygon
-    #          idx: 0 # left
-    #
-    #        - <<: *ik_base_polygon
-    #          idx: 1 # right
-    #          mirror_y: True
-    #          mirror_yaw: True
 
     # StepPlanMsgPlugin
     step_plan_msg_plugin: none
@@ -51,7 +27,23 @@ plugin_sets:
     # ReachabilityPlugins
     polygonal_reachability:
       params:
+        print_polygons: true
         reachability_polygons: *reachability_polygons
+    support_polygon_check:
+      params:
+        support_polygons:
+          base_support_polygon: &base_support_polygon
+            - x: [-0.09, -0.07, -0.02,  0.02,  0.07,  0.09]
+              y: [-0.07,  0.0,   0.05,  0.05,  0.0,  -0.07]
+
+          feet:
+            - <<: *base_support_polygon
+              idx: 0 # left
+
+            - <<: *base_support_polygon
+              idx: 1 # right
+              mirror_y: True
+              mirror_yaw: True
 
     # StepCostEstimatorPlugins
     const_step_cost_estimator:
@@ -90,6 +82,7 @@ plugin_sets:
     # TerrainModelPlugins
     terrain_model:
       import: basic_terrain_model
+      #import: mcp_step_estimator
       params:
         topic: /terrain_model
 
@@ -98,6 +91,7 @@ plugin_sets:
     step_plan_vis: none
     step_plan_path_vis: none
     upper_body_vis: none
+    #mcp_step_estimator_l3_vis_plugin: none
     planning_feedback_vis: none
     inverse_kinematics_vis:
       params:

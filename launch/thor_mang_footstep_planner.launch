@@ -3,6 +3,7 @@
 <launch>
   <arg name="ns" default="johnny5/footstep_planning" />
   <arg name="gui" default="False" />
+  <arg name="default_params" default="preview_walking" />
 
   <group ns="$(arg ns)">
     <!-- start robot model server -->
@@ -19,7 +20,7 @@
     
     <!-- specify where to load robot specific parameters -->
     <param name="params_path" value="$(find thor_mang_footstep_planner)/config/planner/" />
-    <param name="default_params" value="preview_walking" />
+    <param name="default_params" value="$(arg default_params)" />
   </group>
 
   <!-- start step widget -->
