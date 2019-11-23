@@ -1,0 +1,153 @@
+plugin_sets:
+  thor_mang_experimental:
+    # StateGeneratorPlugin
+    direct_goal_state_generator: none
+    polygonal_state_generator:
+      params:
+        use_mask: 1
+        reachability_polygons: &reachability_polygons
+          base_polygon: &base_reachability_polygon
+            - x: [ 0.00, -0.07, -0.06, -0.05,  0.13,  0.15,  0.17]
+              y: [-0.04,  0.00,  0.03,  0.05,  0.05,  0.03,  0.00]
+              yaw: [-0.05, 0.20]
+
+          feet:
+            - <<: *base_reachability_polygon
+              idx: 0 # left
+
+            - <<: *base_reachability_polygon
+              idx: 1 # right
+              mirror_y: True
+              mirror_yaw: True
+
+    #ik_polygonal_state_generator:
+    #  params:
+    #    use_mask: 1
+    #    center_to_root: {x: -0.03, y: 0.0, z: 0.722, roll: 0.0, pitch: 0.0, yaw: 0.0}
+    #    resolution:
+    #      x: 0.02
+    #      y: 0.02
+    #      z: 0.02
+    #      num_angle_bins: 72 # bins per full turn (0-360°)
+    #    reachability_polygons: &ik_reachability_polygons
+    #      base_polygon: &ik_base_polygon
+    #        - x: [ 0.30, -0.30, -0.30,  0.30]
+    #          y: [ 0.30,  0.30, -0.10, -0.10]
+    #          yaw: [-0.05, 0.30]
+    #
+    #      feet:
+    #        - <<: *ik_base_polygon
+    #          idx: 0 # left
+    #
+    #        - <<: *ik_base_polygon
+    #          idx: 1 # right
+    #          mirror_y: True
+    #          mirror_yaw: True
+
+    # StepPlanMsgPlugin
+    step_plan_msg_plugin: none
+    #thor_mang_step_plan_msg_plugin: none
+
+    # ReachabilityPlugins
+    polygonal_reachability:
+      params:
+        print_polygons: true
+        reachability_polygons: *reachability_polygons
+    support_polygon_check:
+      params:
+        support_polygons:
+          base_support_polygon: &base_support_polygon
+            - x: [-0.09, -0.07, -0.02,  0.02,  0.07,  0.09]
+              y: [-0.07,  0.0,   0.05,  0.05,  0.0,  -0.07]
+
+          feet:
+            - <<: *base_support_polygon
+              idx: 0 # left
+
+            - <<: *base_support_polygon
+              idx: 1 # right
+              mirror_y: True
+              mirror_yaw: True
+
+        print_polygons: true
+        
+    #ik_reachability:
+    #  params:
+    #    resolution:
+    #      x: 0.01
+    #      y: 0.01
+    #      z: 0.01
+    #      num_angle_bins: 72 # bins per full turn (0-360°)
+
+    #    x: [-0.75, 0.75]
+    #    y: [-0.6, 0.02]
+    #    z: [-0.2, 0.2]
+
+    #    move_base: false
+
+    #    foot_idx: 1
+    #    limits:
+    #      #r_leg_hip_r: [-0.08, 0.25]
+    #      #r_leg_hip_p: [-0.8, 1.0]
+    #      r_leg_kn_p: [-1.5, -0.2]
+    #      #r_leg_an_p: [-0.6, 0.6]
+    #      #r_leg_an_r: [-0.35, 0.35]
+    #    print_rhm: true
+    #    csv_file: "/home/alex/Desktop/octave/rhm"
+
+    # StepCostEstimatorPlugins
+    const_step_cost_estimator:
+      params:
+        step_cost: &step_cost 0.1
+    euclidean_step_cost_estimator: none
+
+    # HeuristicPlugins
+    euclidean_heuristic: none
+    step_cost_heuristic:
+      params:
+        step_cost: *step_cost
+        diff_angle_cost: 0.0
+        max_step_dist_x: 0.13
+        max_step_dist_y: 0.08
+
+    # PostProcessPlugins
+    step_dynamics_post_process:
+      params:
+        sway_duration: 0.0
+        step_duration: 1.0
+        swing_height:  0.1
+
+    # WorldModelPlugins
+    1_upper_body_grid_map_model:
+      import: upper_body_grid_map_model
+      params:
+        collision_check_flag: 2 # Upper Body
+        topic: /body_level_grid_map
+    2_foot_grid_map_model:
+      import: foot_grid_map_model
+      params:
+        collision_check_flag: 1 # Foot
+        topic: /ground_level_grid_map
+
+    # TerrainModelPlugins
+    terrain_model:
+      #import: basic_terrain_model
+      import: mcp_step_estimator
+      params:
+        topic: /terrain_model
+        min_sampling_area: 0.1
+        min_normal_dot: 0.99
+        max_dz: 0.005
+
+  vis:
+    step_plan_request_vis: none
+    step_plan_vis: none
+    step_plan_path_vis: none
+    upper_body_vis: none
+    mcp_step_estimator_l3_vis_plugin: none
+    planning_feedback_vis: none
+    inverse_kinematics_vis:
+      params:
+        robot_description: "johnny5/robot_description"
+        joint_names: ["l_arm_sh_p1", "l_arm_sh_r", "l_arm_sh_p2", "l_arm_el_y", "r_arm_sh_p1", "r_arm_sh_r", "r_arm_sh_p2", "r_arm_el_y", "head_p"]
+        joint_values: [0.44, 1.31, 0.09, -0.52, -0.44, -1.31, -0.09, 0.52, 0.4]
