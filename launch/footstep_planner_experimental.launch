@@ -12,10 +12,10 @@
     </include>
   </group>
 
-  <include file="$(find thor_mang_footstep_planner)/launch/thor_mang_footstep_planner.launch" pass_all_args="true" />
+  <include file="$(find thor_mang_footstep_planner)/launch/footstep_planner.launch" pass_all_args="true" />
 
   <group ns="$(arg ns)">
     <!-- load sets from YAML file to parameter server -->
-    <rosparam file="$(find thor_mang_footstep_planner)/config/thor_mang_plugin_sets_experimental.yaml" command="load" />
+    <rosparam file="$(find thor_mang_footstep_planner)/config/plugin_sets_experimental.yaml" command="load" />
   </group>
 </launch>

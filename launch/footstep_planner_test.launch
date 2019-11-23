@@ -11,5 +11,5 @@
     </include>
   </group>
 
-  <include file="$(find thor_mang_footstep_planner)/launch/thor_mang_footstep_planner.launch" pass_all_args="true" />
+  <include file="$(find thor_mang_footstep_planner)/launch/footstep_planner.launch" pass_all_args="true" />
 </launch>
