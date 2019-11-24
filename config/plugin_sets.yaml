@@ -27,8 +27,8 @@ plugin_sets:
     # ReachabilityPlugins
     polygonal_reachability:
       params:
-        print_polygons: true
         reachability_polygons: *reachability_polygons
+        #print_polygons: true
     support_polygon_check:
       params:
         support_polygons:
