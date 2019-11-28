@@ -20,10 +20,6 @@ plugin_sets:
               mirror_y: True
               mirror_yaw: True
 
-    # StepPlanMsgPlugin
-    step_plan_msg_plugin: none
-    #thor_mang_step_plan_msg_plugin: none
-
     # ReachabilityPlugins
     polygonal_reachability:
       params:
