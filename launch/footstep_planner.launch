@@ -4,6 +4,7 @@
   <arg name="ns" default="johnny5/footstep_planning" />
   <arg name="gui" default="False" />
   <arg name="default_params" default="preview_walking" />
+  <arg name="default_plugin_set_file" default="plugin_sets.yaml" />
 
   <group ns="$(arg ns)">
     <!-- start robot model server -->
@@ -14,6 +15,9 @@
 
     <!-- start footstep planner -->
     <node name="thor_mang_footstep_planner" pkg="l3_global_footstep_planner" type="global_footstep_planner_node" respawn="true" output="screen" />
+
+    <!-- load sets from YAML file to parameter server -->
+    <rosparam file="$(find thor_mang_footstep_planner)/config/$(arg default_plugin_set_file)" command="load" />
     
     <!-- specify where to load robot specific parameters -->
     <param name="params_path" value="$(find thor_mang_footstep_planner)/config/planner/" />

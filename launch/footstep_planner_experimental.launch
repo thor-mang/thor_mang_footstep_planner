@@ -4,6 +4,7 @@
   <arg name="ns" default="johnny5/footstep_planning" />
   <arg name="gui" default="False" />
   <arg name="default_params" default="experimental" />
+  <arg name="default_plugin_set_file" default="plugin_sets_experimental.yaml" />
 
   <!-- load robot model -->
   <group ns="johnny5">
@@ -13,9 +14,4 @@
   </group>
 
   <include file="$(find thor_mang_footstep_planner)/launch/footstep_planner.launch" pass_all_args="true" />
-
-  <group ns="$(arg ns)">
-    <!-- load sets from YAML file to parameter server -->
-    <rosparam file="$(find thor_mang_footstep_planner)/config/plugin_sets_experimental.yaml" command="load" />
-  </group>
 </launch>
