@@ -7,8 +7,8 @@ plugin_sets:
         use_mask: 1
         reachability_polygons: &reachability_polygons
           base_polygon: &base_reachability_polygon
-            - x: [ 0.00, -0.07, -0.06, -0.05,  0.13,  0.15,  0.17]
-              y: [-0.04,  0.00,  0.03,  0.05,  0.05,  0.03,  0.00]
+            - x: [ 0.00, -0.05, -0.20, -0.17, -0.13,  0.13,  0.20,  0.30,  0.20]
+              y: [-0.02, -0.02,  0.05,  0.10,  0.15,  0.15,  0.10,  0.00, -0.02]
               yaw: [-0.05, 0.20]
 
           feet:
@@ -44,15 +44,15 @@ plugin_sets:
     #          mirror_y: True
     #          mirror_yaw: True
 
-    # StepPlanMsgPlugin
-    step_plan_msg_plugin: none
-    #thor_mang_step_plan_msg_plugin: none
-
     # ReachabilityPlugins
+    state_3d_reachability:
+      params:
+        max_foothold_roll: 0.25
+        max_foothold_pitch: 0.25
     polygonal_reachability:
       params:
-        print_polygons: true
         reachability_polygons: *reachability_polygons
+        #print_polygons: true
     support_polygon_check:
       params:
         support_polygons:
@@ -69,7 +69,7 @@ plugin_sets:
               mirror_y: True
               mirror_yaw: True
 
-        print_polygons: true
+        #print_polygons: true
         
     #ik_reachability:
     #  params:
@@ -87,11 +87,11 @@ plugin_sets:
 
     #    foot_idx: 1
     #    limits:
-    #      #r_leg_hip_r: [-0.08, 0.25]
-    #      #r_leg_hip_p: [-0.8, 1.0]
-    #      r_leg_kn_p: [-1.5, -0.2]
-    #      #r_leg_an_p: [-0.6, 0.6]
-    #      #r_leg_an_r: [-0.35, 0.35]
+    #      #r_leg_hip_r: [-0.08, 0.5]
+    #      #r_leg_hip_p: [-0.8, 0.8]
+    #      #r_leg_kn_p: [-1.5, -0.2]
+    #      #r_leg_an_p: [-0.7, 0.4]
+    #      r_leg_an_r: [-0.5, 0.5]
     #    print_rhm: true
     #    csv_file: "/home/alex/Desktop/octave/rhm"
 

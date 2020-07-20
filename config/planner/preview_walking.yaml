@@ -3,7 +3,7 @@ name: preview_walking
 ### planner environment settings ###############################################
 
 # discretization of continuous space
-cell_size: &cell_size 0.01 # cell size in meters
+cell_size: &cell_size 0.02 # cell size in meters
 
 resolution:
   x: *cell_size
