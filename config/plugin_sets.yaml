@@ -62,6 +62,7 @@ plugin_sets:
         sway_duration: 0.0
         step_duration: 1.0
         swing_height:  0.1
+    simple_floating_base_post_process: none
 
     # WorldModelPlugins
     1_upper_body_grid_map_model:
