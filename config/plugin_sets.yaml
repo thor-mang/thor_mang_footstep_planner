@@ -79,7 +79,6 @@ plugin_sets:
     # TerrainModelPlugins
     terrain_model:
       import: basic_terrain_model
-      #import: mcp_step_estimator
       params:
         topic: /terrain_model
 
@@ -88,7 +87,6 @@ plugin_sets:
     step_plan_vis: none
     step_plan_path_vis: none
     upper_body_vis: none
-    #mcp_step_estimator_l3_vis_plugin: none
     planning_feedback_vis: none
     inverse_kinematics_vis:
       params:

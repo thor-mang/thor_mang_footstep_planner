@@ -7,7 +7,7 @@ project(thor_mang_footstep_planner)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS l3_footstep_planning thor_mang_footstep_planning_plugins)
+find_package(catkin REQUIRED COMPONENTS l3_footstep_planning)
 
 ## System dependencies are found with CMake's conventions
 #find_package(Boost REQUIRED COMPONENTS system)
@@ -80,7 +80,7 @@ find_package(catkin REQUIRED COMPONENTS l3_footstep_planning thor_mang_footstep_
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES thor_mang_footstep_planner
-  CATKIN_DEPENDS l3_footstep_planning thor_mang_footstep_planning_plugins
+  CATKIN_DEPENDS l3_footstep_planning
 #  DEPENDS system_lib
 )
 
