@@ -326,6 +326,27 @@ Visualization Manager:
           Value: false
       Enabled: true
       Name: Footstep Planning
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Class: grid_map_rviz_plugin/GridMap
+      Color: 200; 200; 200
+      Color Layer: elevation
+      Color Transformer: GridMapLayer
+      Enabled: true
+      Height Layer: elevation
+      Height Transformer: GridMapLayer
+      History Length: 1
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 10
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Terrain Model
+      Show Grid Lines: true
+      Topic: /l3/terrain_model/terrain_model_map
+      Unreliable: false
+      Use Rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 97; 97; 97
@@ -354,7 +375,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.814720153808594
+      Distance: 4.644041061401367
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -362,17 +383,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.7754563093185425
-        Y: -0.2755308747291565
-        Z: -0.35350072383880615
+        X: 0.5840250849723816
+        Y: -0.613357424736023
+        Z: -0.00348868640139699
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7003982663154602
+      Pitch: 0.8353985548019409
       Target Frame: odom
-      Yaw: 1.0803979635238647
+      Yaw: 1.140397548675537
     Saved: ~
 Window Geometry:
   Displays:
@@ -393,4 +414,4 @@ Window Geometry:
     collapsed: true
   Width: 1386
   X: 2206
-  Y: 119
+  Y: 82
