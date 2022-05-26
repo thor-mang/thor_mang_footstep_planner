@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(thor_mang_footstep_planner)
+project(thor_mang_l3_footstep_planning)
 
 #set(CMAKE_BUILD_TYPE Debug)
 #set(CMAKE_BUILD_TYPE RelWithDebInfo)
@@ -79,7 +79,7 @@ find_package(catkin REQUIRED COMPONENTS l3_footstep_planning)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES thor_mang_footstep_planner
+#  LIBRARIES thor_mang_l3_footstep_planning
   CATKIN_DEPENDS l3_footstep_planning
 #  DEPENDS system_lib
 )
