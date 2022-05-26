@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Footstep Planning1/RobotModel1
         - /Footstep Planning1/Planning Vis1/Namespaces1
-      Splitter Ratio: 0.5790960192680359
+      Splitter Ratio: 0.505649745464325
     Tree Height: 451
   - Class: rviz/Selection
     Name: Selection
@@ -370,9 +370,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6803982853889465
+      Pitch: 0.7003982663154602
       Target Frame: odom
-      Yaw: 1.2103978395462036
+      Yaw: 1.0803979635238647
     Saved: ~
 Window Geometry:
   Displays:
