@@ -152,3 +152,8 @@ plugin_sets:
         robot_description: "johnny5/robot_description"
         joint_names: ["l_arm_sh_p1", "l_arm_sh_r", "l_arm_sh_p2", "l_arm_el_y", "r_arm_sh_p1", "r_arm_sh_r", "r_arm_sh_p2", "r_arm_el_y", "head_p"]
         joint_values: [0.44, 1.31, 0.09, -0.52, -0.44, -1.31, -0.09, 0.52, 0.4]
+    nav_goal_marker_vis:
+      params:
+        step_controller_topic: /johnny5/step_control_module/execute_step_plan
+        planning_horizon: 0.6
+

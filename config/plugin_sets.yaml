@@ -7,8 +7,10 @@ plugin_sets:
         use_mask: 1
         reachability_polygons: &reachability_polygons
           base_polygon: &base_reachability_polygon
-            - x: [ 0.00, -0.07, -0.06, -0.05,  0.05,  0.07,  0.10]
-              y: [-0.04,  0.00,  0.03,  0.05,  0.05,  0.03,  0.00]
+            - x: [ 0.00, -0.05, -0.20, -0.17, -0.13,  0.13,  0.20,  0.30,  0.20]
+              y: [-0.02, -0.02,  0.05,  0.10,  0.15,  0.15,  0.10,  0.00, -0.02]
+          #  - x: [ 0.00, -0.07, -0.06, -0.05,  0.05,  0.07,  0.10]
+          #    y: [-0.04,  0.00,  0.03,  0.05,  0.05,  0.03,  0.00]
               yaw: [-0.05, 0.20]
 
           feet:
@@ -25,27 +27,13 @@ plugin_sets:
       params:
         reachability_polygons: *reachability_polygons
         #print_polygons: true
-    support_polygon_check:
-      params:
-        support_polygons:
-          base_support_polygon: &base_support_polygon
-            - x: [-0.09, -0.07, -0.02,  0.02,  0.07,  0.09]
-              y: [-0.07,  0.0,   0.05,  0.05,  0.0,  -0.07]
-
-          feet:
-            - <<: *base_support_polygon
-              idx: 0 # left
-
-            - <<: *base_support_polygon
-              idx: 1 # right
-              mirror_y: True
-              mirror_yaw: True
 
     # StepCostEstimatorPlugins
     const_step_cost_estimator:
       params:
         step_cost: &step_cost 0.1
     euclidean_step_cost_estimator: none
+    ground_contact_step_cost_estimator: none
 
     # HeuristicPlugins
     euclidean_heuristic: none
@@ -96,6 +84,7 @@ plugin_sets:
     step_plan_vis: none
     step_plan_path_vis: none
     upper_body_vis: none
+    ground_contact_estimation_vis: none
     planning_feedback_vis: none
     inverse_kinematics_vis:
       params:
@@ -106,3 +95,4 @@ plugin_sets:
       params:
         step_controller_topic: /johnny5/step_control_module/execute_step_plan
         planning_horizon: 0.6
+
