@@ -92,6 +92,7 @@ plugin_sets:
         joint_values: [0.44, 1.31, 0.09, -0.52, -0.44, -1.31, -0.09, 0.52, 0.4]
     nav_goal_marker_vis:
       params:
+        frame: "map"
         step_controller_topic: /johnny5/step_control_module/execute_step_plan
         planning_horizon: 0.6
 

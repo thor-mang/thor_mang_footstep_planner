@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Footstep Planning1
         - /Footstep Planning1/Planning Vis1/Namespaces1
       Splitter Ratio: 0.505649745464325
     Tree Height: 452
@@ -291,10 +290,10 @@ Visualization Manager:
           Name: Planning Vis
           Namespaces:
             goal: true
-            last_visited_step: false
+            last_visited_step: true
             recently_visited_steps: true
             start: true
-            step_plan_floating_base: false
+            step_plan_floating_base: true
             step_plan_footholds: true
             total_visited_steps: true
             upper_body: false
@@ -349,13 +348,13 @@ Visualization Manager:
       Value: true
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
-      Enabled: false
+      Enabled: true
       Name: InteractiveMarkers
       Show Axes: false
       Show Descriptions: true
       Show Visual Aids: false
       Update Topic: /johnny5/footstep_planning/nav_goal/update
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 97; 97; 97
