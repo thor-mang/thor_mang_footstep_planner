@@ -79,12 +79,12 @@ plugin_sets:
         topic: /terrain_model
 
   vis:
+    planning_feedback_vis: none
     step_plan_request_vis: none
     step_plan_vis: none
     step_plan_path_vis: none
     upper_body_vis: none
     ground_contact_estimation_vis: none
-    planning_feedback_vis: none
     inverse_kinematics_vis:
       params:
         robot_description: "johnny5/robot_description"
