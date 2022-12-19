@@ -135,7 +135,6 @@ plugin_sets:
       import: basic_terrain_model
       #import: mcp_step_estimator
       params:
-        topic: /terrain_model
         min_sampling_area: 0.1
         min_normal_dot: 0.99
         max_dz: 0.005
